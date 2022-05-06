@@ -6,6 +6,7 @@ import { GetServerSidePropsResult } from 'next/types'
 import { ParsedUrlQuery } from 'querystring'
 import { addApolloState, initializeApollo } from './apolloClient'
 
+
 export const assertReqRes = (req: NextApiRequest, res: NextApiResponse): void => {
    if (!req) {
       throw new Error('Request is not available')
@@ -32,43 +33,83 @@ export type WithPageOptions<P = any> = {
    // getServerSideProps?: ;
    auth?: boolean,
    returnTo?: string,
-   namespacesRequired?: string[]
+   translations?: string[]
 };
 
-export default function withApollo(optsOrComponent: WithPageOptions, getServerSideProps: GetServerSidePropsFunc): any {
+export default function withApollo(optsOrComponent: WithPageOptions, getServerSideProps?: GetServerSidePropsFunc): any {
    
    const {
-      namespacesRequired = [],
+      translations = [],
       auth,
       returnTo = '/',
    } = optsOrComponent
    
    async function gssp(ctx: GetServerSidePropsContext): Promise<GetServerSidePropsResultWithSession> {
       assertCtx(ctx)
-      
-      const session = auth ? getSession(ctx.req, ctx.res) : null
-      
-      const apolloClient = initializeApollo(null, auth ? session?.idToken : null)
-      
-      let ret: any = { props: {} }
-      
-      if (getServerSideProps) {
-         ret = await getServerSideProps(ctx, apolloClient)
+   
+      try {
+         const session = getSession(ctx.req, ctx.res)
+         let apolloClient: ApolloClient<any>
+   
+   
+         try {
+            apolloClient = initializeApollo(null, (auth || session) ? session?.idToken : null)
+         } catch (e) {
+            apolloClient = initializeApollo(null, null)
+         }
+   
+         let ret: any = { props: {} }
+   
+         if (getServerSideProps) {
+            ret = await getServerSideProps(ctx, apolloClient)
+         }
+         
+         return addApolloState(apolloClient, {
+            ...ret,
+            props: {
+               ...ret.props,
+               ...await serverSideTranslations(ctx.locale, ['shared', 'categories', 'form', 'cards', 'alerts', ...translations]),
+            },
+         })
+         
+      } catch (e) {
+         
+         const apolloClient = initializeApollo(null, null)
+         
+         let ret: any = { props: {} }
+   
+         if (getServerSideProps) {
+            ret = await getServerSideProps(ctx, apolloClient)
+         }
+         
+         if(e.toString().includes('JWTExpired') && auth) {
+            console.log('/api/auth/logout')
+            return addApolloState(apolloClient, {
+               ...ret,
+               redirect: {
+                  destination: '/api/auth/logout',
+                  permanent: false
+               }
+            })
+         } else {
+            return addApolloState(apolloClient, {
+               ...ret,
+               props: {
+                  ...ret.props,
+                  ...await serverSideTranslations(ctx.locale, ['shared', 'categories', 'form', 'cards', 'alerts', ...translations]),
+               }
+            })
+         }
+         
       }
       
-      return addApolloState(apolloClient, {
-         ...ret,
-         props: {
-            ...ret.props,
-            ...await serverSideTranslations(ctx.locale, ['shared', ...namespacesRequired]),
-         },
-      })
+   
       
    }
    
    if (auth) {
       return withPageAuthRequired({
-         returnTo: returnTo,
+         returnTo: '/api/auth/logout',
          async getServerSideProps(ctx) { return gssp(ctx) },
       })
    }

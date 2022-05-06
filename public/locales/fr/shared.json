@@ -1,5 +1,30 @@
 {
+  "store": "Boutique",
+  "field": "Ce champ",
+  "manage_store": "Gérer la boutique",
+  "home": "Accueil",
+  "products": "Articles",
+  "messages": "Messages",
+  "stats": "Statistiques",
+  "customization": "Customisation",
+  "settings": "Paramètres",
+  "categories": "Catégories",
+  "cart": "Panier",
+  "general": "Général",
+  "localization": "Localisation",
+  "catalogue": "Catalogue",
+  "orders": "Commandes",
+  "signin": "Se connecter",
+  "signup": "S'inscrire",
+  "my_orders": "Mes commandes",
+  "my_store": "Ma boutique",
+  "my_profile": "Mon profil",
+  "signout": "Se déconnecter",
   "page": {
-    "home": "Accueil"
+    "home": "Accueil",
+    "welcome %name": "Bienvenue, {{name}}"
+  },
+  "title": {
+    "get_started": "Créer ma boutique"
   }
 }

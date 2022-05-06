@@ -1,17 +1,21 @@
-import { Button, Code } from '@chakra-ui/react'
-import withApollo from '@mosu/lib/withApollo'
+import MainLayout from '@/components/common/Layouts/MainLayout'
+import SEO from '@/components/common/SEO'
+import PostList, { ALL_POSTS_QUERY } from '@/components/PostList'
+import withApollo from '@/lib/withApollo'
+import { Button, Code, Container } from '@chakra-ui/react'
 import { useTranslation } from 'next-i18next'
-import { Container } from '../components/Container'
-import PostList, { ALL_POSTS_QUERY } from '../components/PostList'
 
 const Posts = () => {
    const { t } = useTranslation()
    return (
-      <Container height="100vh">
-         <Code>TypeScript</Code>
-         <PostList />
-         <Button colorScheme="blue">{t('page.home')}</Button>
-      </Container>
+      <MainLayout navbar="landing">
+         <SEO title="Test" />
+         <Container height="100vh">
+            <Code>TypeScript</Code>
+            <PostList />
+            <Button colorScheme="blue">{t('page.home')}</Button>
+         </Container>
+      </MainLayout>
    )
 }
 

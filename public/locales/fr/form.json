@@ -1,0 +1,50 @@
+{
+  "what_country": "Dans quel pays votre boutique opère-t-elle?",
+  "product_type": "Type d'articles vendus",
+  "whatsapp_number": "Quel est votre numéro Whatsapp?",
+  "email": "Adresse email",
+  "address": "Adresse",
+  "no_address_found": "Aucune adresse trouvée",
+  "enter_address": "Entrez votre adresse",
+  "loading": "Chargement...",
+  "whatsapp_number_info": "Votre numéro restera confidentiel et sera uniquement utilisé par Mosu pour établir un proxy pour la communication avec vos clients.",
+  "address_field_info": "Veuillez laisser ce champs vide si votre boutique n'a pas d'adresse physique",
+  "submit": "Soumettre",
+  "save": "Sauvegarder",
+  "dropzone": "Télécharger un fichier ou glisser-déposer",
+  "select": {
+    "country": "Selectionner un pays",
+    "category": "Selectionner une catégorie"
+  },
+  "steps": {
+    "your_store": "Votre boutique",
+    "info": "Informations",
+    "finalization": "Finalisation"
+  },
+  "store": {
+    "name": "Nom de la boutique",
+    "url": "URL de la boutique",
+    "url_field_info": "Ce lien permettra à vos clients d'accéder à votre boutique en ligne.",
+    "invalid_url": "L'url doit contenir le nom de la boutique",
+    "url_already_taken": "Cet url existe déjà",
+    "trial_period": "7 premiers jours gratuit!",
+    "trial_period_description": "Vous bénéficierai d'une periode d'essai de 7 jours après la création de votre boutique."
+  },
+  "button": {
+    "create_store": "Créer ma boutique",
+    "next": "Suivant",
+    "prev": "Précédent"
+  },
+  "general": {
+    "title": "Information personelle",
+    "first_name": "Prénom(s)",
+    "last_name": "Nom",
+    "email": "Adresse email",
+    "profile_picture": "Photo de profil"
+  },
+  "location": {
+    "physical_address_question": "La boutique a un emplacement physique où les gens peuvent se rendre.",
+    "directions": "Directions",
+    "in_addition_to": "En addition de"
+  }
+}

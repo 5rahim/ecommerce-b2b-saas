@@ -17,23 +17,35 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@mosu/components/*": [
-        "./components/*"
+      "@/components/*": [
+        "./src/components/*"
       ],
-      "@mosu/lib/*": [
-        "./lib/*"
+      "@/lib/*": [
+        "./src/lib/*"
       ],
-      "@mosu/graphql/*": [
-        "./graphql/*"
+      "@/graphql/*": [
+        "./src/graphql/*"
       ],
-      "@mosu/hooks/*": [
-        "./hooks/*"
+      "@/hooks/*": [
+        "./src/hooks/*"
       ],
-      "@mosu/utils/*": [
-        "./utils/*"
+      "@/utils/*": [
+        "./src/utils/*"
+      ],
+      "@/modules/*": [
+        "./src/modules/*"
+      ],
+      "@/config/*": [
+        "./src/config/*"
+      ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
       ]
     }
   },

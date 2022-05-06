@@ -1,0 +1,25 @@
+{
+  "title": "Mosu",
+  "titleTemplate": "%s - Mosu",
+  "description": "Mosu - https://mosu.app",
+  "openGraph": {
+    "title": "Mosu",
+    "description": "Mosu - https://mosu.app",
+    "type": "website",
+    "url": "https://mosu.app",
+    "site_name": "Mosu",
+    "images": [
+      {
+        "url": "/card.png",
+        "width": "800",
+        "height": "600",
+        "alt": "Mosu"
+      }
+    ]
+  },
+  "twitter": {
+    "handle": "@nextjs",
+    "site": "@nextjs",
+    "cardType": "summary_large_image"
+  }
+}

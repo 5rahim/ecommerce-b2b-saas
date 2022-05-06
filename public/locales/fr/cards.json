@@ -1,0 +1,19 @@
+{
+  "banner": {
+    "add_categories": {
+      "title": "Ajouter des catégories",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ad, cupiditate dignissimos ducimus earum, est excepturi facilis id impedit.",
+      "action": "Ajouter une catégorie"
+    },
+    "customize_store": {
+      "title": "Customiser votre boutique",
+      "description": "Design your website’s overall appearance by selecting a template from a range of eye-catching options. Once you’ve chosen your theme, it’s easy to change the font and color of your page and customize it to your satisfaction.\n\n",
+      "action": "Customiser maintenant"
+    },
+    "trial": {
+      "title": "Attention",
+      "description": "Il vous reste {{time}} pour essayer la version payante.",
+      "action": "Voir les plans"
+    }
+  }
+}
